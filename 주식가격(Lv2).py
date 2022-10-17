@@ -1,11 +1,13 @@
+from collections import deque
 def solution(prices):
     answer = []
-    
-    for i in range(len(prices)):
+    prices = deque(prices)
+    while prices:
+        first = prices.popleft()
         count = 0
-        for j in range(i+1,len(prices)):
+        for price in prices:
             count+=1
-            if prices[i]>prices[j]:
+            if first>price:
                 break
         answer.append(count)
     return answer
