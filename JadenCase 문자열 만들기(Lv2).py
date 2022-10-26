@@ -1,9 +1,7 @@
 def solution(s):
-    answer = ''
-    string = list(s.lower())
-    string[0] = string[0].upper()
-    for i in range(1,len(string)):
-        if string[i-1] == ' ':
-            string[i] = string[i].upper()    
-                   
-    return ''.join(string)
+    s = s.lower().split(" ")
+    for i in range(len(s)):
+        if s[i].isalpha():
+            s[i]=s[i][0].upper()+s[i][1:]
+
+    return " ".join(s)
